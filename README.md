@@ -1,10 +1,9 @@
 ## CS5224 Group Project
 
 This repository provides codes for Group 24 Final Project.
+You can go to the demo by clicking the link below.
 
 ## [YANA - You Are Not Alone](https://yana.sora.so/) 
-
-You can proceed to the demo by clicking the link above.
 
 ## Executive summary
 
@@ -48,10 +47,12 @@ Besides gaining revenues from individual customers, we are also targeting at bus
 ![Architecture](https://user-images.githubusercontent.com/62169579/114296237-c693f500-9adc-11eb-97a1-0ad02640dfb6.jpg)
 
 YANA Front-End:
+
 React.js is used to develop the front-end web UI. AWS Amplify is used as Saas service assisting users to build mobile or web applications, it is used to deploy the front-end web UI. Amazon Route 53 which is a scalable and highly available Domain Name Service, we can create a domain for the AWS amplify webApp
 Amazon EC2, EC2 Auto Scaling and Elastic Load Balancing are used to set-up our front-end server to host our web interface. Then we use our personal domain and set the DNS to be our front-end server IP address.
 
 YANA Back-End:
+
 React.js is used to develop the front-end web UI. AWS Amplify is used as Saas service assisting users to build mobile or web applications, it is used to deploy the front-end web UI. Amazon Route 53 which is a scalable and highly available Domain Name Service, we can create a domain for the AWS amplify webApp
 Amazon EC2, EC2 Auto Scaling and Elastic Load Balancing are used to set-up our front-end server to host our web interface. Then we use our personal domain and set the DNS to be our front-end server IP address.
 
