@@ -20,6 +20,9 @@ import Voice from "src/components/rightSideComponents/Voice/Voice"
 
 import Peer from "peerjs";
 //import { cred } from "../../config/callcred";
+//
+
+import ROUTER from "src/router"
 
 import {useLocation} from "react-router-dom";
 
@@ -107,21 +110,18 @@ const Chat = ()=> {
     const [ join,setJoin ] = useState(0);
     const [ usersInVoice, setUsersInVoice ] = useState([]);
 
-
+    const ENDPOINT = ROUTER.VOICE_ROUTE;
     // const ENDPOINT = process.env.REACT_APP_API_ENDPOINT_LOCAL;   // the express server
-    const ENDPOINT = "localhost:5000"
+
+    // const ENDPOINT = "localhost:5000"
     // const ENDPOINT = "http://34ec49ff45f2.ngrok.io";   // the express server
     // const ENDPOINT = process.env.REACT_APP_API_ENDPOINT_REAL; // my deployed server
-    console.log('??????')
-    console.log(location)
 
     useEffect(() => {
         const { name, room } = queryString.parse(location.search);
         socket = io(ENDPOINT, { transport : ['websocket'] });
         setName(name.trim().toLowerCase());
         setRoom(room.trim().toLowerCase());
-        // setName(name);
-        // setRoom(room);
 
         console.log("Join Function");
         socket.emit('join',{name,room},(result)=>{
@@ -193,11 +193,9 @@ const Chat = ()=> {
                 peer.on('open',()=>{
                     console.log("connected to peerserver");
 
-                    // won't call myself
                     const otherUsersInVoice = (usersInVoice).filter((x) => x.id !== socket.id);
 
                     peers = (otherUsersInVoice).map((u) => {  // usersInVoice affects this
-                        //call everyone already present
                         var mediaConnection = peer.call(u.id, mystream);
                         console.log(`Calling ${u.id} ${u.name}`);
                         //console.log(mediaConnection);
@@ -211,7 +209,6 @@ const Chat = ()=> {
                             })
                         });
 
-                        // if anyone closes media connection
                         mediaConnection.on('close',()=>{
                             audio.remove();
                         })
@@ -227,9 +224,7 @@ const Chat = ()=> {
 
         return ()=> {
 
-            //close my audio
            if(myStream) stopBothVideoAndAudio(myStream);
-            //close the calls i received
             receivedCalls.forEach((stream) => stopBothVideoAndAudio(stream));
 
             if(peer) {

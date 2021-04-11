@@ -41,6 +41,8 @@
   height: 48%;
   width: 100%;
   color: #dedede;
+  border-top: solid;
+  border-top-width: 2px;
 }
 
 .inMobile { 

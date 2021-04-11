@@ -69,6 +69,7 @@ const CustomerListResults = ({ users, ...rest }) => {
           <Table>
             <TableHead>
               <TableRow>
+                {/*
                 <TableCell padding="checkbox">
                   <Checkbox
                     checked={selectedCustomerIds.length === users.length}
@@ -80,6 +81,7 @@ const CustomerListResults = ({ users, ...rest }) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
+                */}
                 <TableCell>
                   Name
                 </TableCell>
@@ -104,6 +106,7 @@ const CustomerListResults = ({ users, ...rest }) => {
                   key={user.id}
                   selected={selectedCustomerIds.indexOf(user.id) !== -1}
                 >
+                {/*
                   <TableCell padding="checkbox">
                     <Checkbox
                       checked={selectedCustomerIds.indexOf(user.id) !== -1}
@@ -111,6 +114,7 @@ const CustomerListResults = ({ users, ...rest }) => {
                       value="true"
                     />
                   </TableCell>
+                */}
                   <TableCell>
                     <Box
                       sx={{

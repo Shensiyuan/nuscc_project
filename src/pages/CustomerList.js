@@ -5,10 +5,13 @@ import CustomerListToolbar from 'src/components/customer/CustomerListToolbar';
 // import customers from 'src/__mocks__/customers';
 
 import axios from 'axios';
+import ROUTER from "src/router";
 
 var users = [];
 
-axios.get("http://localhost:5001/api/search_users", {})
+let url_request = ROUTER.FLASK_ROUTE.concat("api/search_users");
+
+axios.get(url_request, {})
   .then((response) => {
     users = response.data.users;
     console.log(users)
@@ -17,7 +20,7 @@ axios.get("http://localhost:5001/api/search_users", {})
 const CustomerList = () => (
   <>
     <Helmet>
-      <title>Customers | Material Kit</title>
+      <title>YANA - Voice Chat Rooms</title>
     </Helmet>
     <Box
       sx={{
@@ -27,7 +30,9 @@ const CustomerList = () => (
       }}
     >
       <Container maxWidth={false}>
+        {/*
         <CustomerListToolbar />
+        */}
         <Box sx={{ pt: 3 }}>
           <CustomerListResults users={users} />
         </Box>

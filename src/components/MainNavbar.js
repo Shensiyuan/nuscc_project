@@ -3,14 +3,18 @@ import { AppBar, Toolbar } from '@material-ui/core';
 import Logo from './Logo';
 
 const MainNavbar = (props) => (
-  <AppBar
+  <AppBar style={{ background: '#2E3B55' }}
     elevation={0}
     {...props}
   >
     <Toolbar sx={{ height: 64 }}>
+      {/*
       <RouterLink to="/">
+      */}
         <Logo />
+      {/*
       </RouterLink>
+      */}
     </Toolbar>
   </AppBar>
 );

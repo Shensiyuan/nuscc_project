@@ -30,6 +30,7 @@ const CustomerListToolbar = (props) => (
         Add customer
       </Button>
     </Box>
+    {/*
     <Box sx={{ mt: 3 }}>
       <Card>
         <CardContent>
@@ -55,6 +56,7 @@ const CustomerListToolbar = (props) => (
         </CardContent>
       </Card>
     </Box>
+    */}
   </Box>
 );
 

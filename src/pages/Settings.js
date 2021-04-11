@@ -6,7 +6,7 @@ import SettingsPassword from 'src/components/settings/SettingsPassword';
 const SettingsView = () => (
   <>
     <Helmet>
-      <title>Settings | Material Kit</title>
+        <title>YANA - Voice Chat Rooms</title>
     </Helmet>
     <Box
       sx={{
@@ -16,7 +16,9 @@ const SettingsView = () => (
       }}
     >
       <Container maxWidth="lg">
+        {/*
         <SettingsNotifications />
+        */}
         <Box sx={{ pt: 3 }}>
           <SettingsPassword />
         </Box>

@@ -9,31 +9,23 @@ import {
   Grid,
   TextField
 } from '@material-ui/core';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import ROUTER from "src/router";
 
-const states = [
-  {
-    value: 'alabama',
-    label: 'Alabama'
-  },
-  {
-    value: 'new-york',
-    label: 'New York'
-  },
-  {
-    value: 'san-francisco',
-    label: 'San Francisco'
-  }
-];
+let url_request = ROUTER.FLASK_ROUTE.concat("api/update_info");
+
 
 const AccountProfileDetails = (props) => {
   const [values, setValues] = useState({
-    firstName: 'Katarina',
-    lastName: 'Smith',
-    email: 'demo@devias.io',
+    userName: '',
+    email: '',
     phone: '',
-    state: 'Alabama',
-    country: 'USA'
+    city: '',
+    country: '',
+    password: '',
   });
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setValues({
@@ -41,6 +33,27 @@ const AccountProfileDetails = (props) => {
       [event.target.name]: event.target.value
     });
   };
+
+  const handleSubmit = () => () => {
+    console.log(values)
+    axios.post(url_request, {
+      "user_name": values.userName,
+      "email": values.email,
+      "phone": values.phone,
+      "city": values.city,
+      "country": values.country,
+      "password": values.password
+    })
+      .then((response) => {
+        if(response.data.response === "Email Not Exist"){
+          alert("Email Not Exist")
+        }
+        else if(response.data.response === "Update Succeed"){
+          alert("Update Succeed")
+        }
+
+      })
+  }
 
   return (
     <form
@@ -66,27 +79,11 @@ const AccountProfileDetails = (props) => {
             >
               <TextField
                 fullWidth
-                helperText="Please specify the first name"
-                label="First name"
-                name="firstName"
+                label="User name"
+                name="userName"
                 onChange={handleChange}
                 required
-                value={values.firstName}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              <TextField
-                fullWidth
-                label="Last name"
-                name="lastName"
-                onChange={handleChange}
-                required
-                value={values.lastName}
+                value={values.userName}
                 variant="outlined"
               />
             </Grid>
@@ -142,26 +139,25 @@ const AccountProfileDetails = (props) => {
             >
               <TextField
                 fullWidth
-                label="Select State"
-                name="state"
+                label="City"
+                name="city"
                 onChange={handleChange}
                 required
-                select
-                SelectProps={{ native: true }}
-                value={values.state}
+                value={values.city}
                 variant="outlined"
-              >
-                {states.map((option) => (
-                  <option
-                    key={option.value}
-                    value={option.value}
-                  >
-                    {option.label}
-                  </option>
-                ))}
-              </TextField>
+              />
             </Grid>
           </Grid>
+          <TextField
+            fullWidth
+            label="Password"
+            margin="normal"
+            name="password"
+            onChange={handleChange}
+            type="password"
+            value={values.password}
+            variant="outlined"
+          />
         </CardContent>
         <Divider />
         <Box
@@ -174,8 +170,9 @@ const AccountProfileDetails = (props) => {
           <Button
             color="primary"
             variant="contained"
+            onClick={handleSubmit()}
           >
-            Save details
+            Update Info
           </Button>
         </Box>
       </Card>

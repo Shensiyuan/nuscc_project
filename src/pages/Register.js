@@ -13,6 +13,9 @@ import {
   Typography
 } from '@material-ui/core';
 import axios from 'axios';
+import ROUTER from "src/router";
+
+let url_request = ROUTER.FLASK_ROUTE.concat("api/register");
 
 const Register = () => {
   const navigate = useNavigate();
@@ -20,7 +23,7 @@ const Register = () => {
   return (
     <>
       <Helmet>
-        <title>Register | Material Kit</title>
+        <title>YANA - Voice Chat Rooms</title>
       </Helmet>
       <Box
         sx={{
@@ -48,13 +51,13 @@ const Register = () => {
             onSubmit={(values) => {
               console.log("????")
               console.log(values)
-              axios.post("http://localhost:5001/api/register", {"user_name": values.userName,"email": values.email, "password": values.password})
+              axios.post(url_request, {"user_name": values.userName,"email": values.email, "password": values.password})
                 .then((response) => {
                   if(response.data.response === "Email Already Registered"){
                     alert("Email Already Registered")
                   }
                   else if(response.data.response === "Register Succeed"){
-                    navigate('/app/dashboard', { replace: true });
+                    navigate('/app/users', { replace: true });
                   }
                 })
             }}
@@ -88,7 +91,7 @@ const Register = () => {
                   error={Boolean(touched.userName && errors.userName)}
                   fullWidth
                   helperText={touched.userName && errors.userName}
-                  label="First name"
+                  label="User name"
                   margin="normal"
                   name="userName"
                   onBlur={handleBlur}

@@ -6,11 +6,12 @@ import {
 } from '@material-ui/core';
 import AccountProfile from 'src/components/account/AccountProfile';
 import AccountProfileDetails from 'src/components/account/AccountProfileDetails';
+import SettingsPassword from 'src/components/settings/SettingsPassword';
 
 const Account = () => (
   <>
     <Helmet>
-      <title>Account | Material Kit</title>
+      <title>YANA - Voice Chat Rooms</title>
     </Helmet>
     <Box
       sx={{
@@ -23,7 +24,10 @@ const Account = () => (
         <Grid
           container
           spacing={3}
+            alignItems="center"
+            justify="center"
         >
+          {/*
           <Grid
             item
             lg={4}
@@ -32,13 +36,13 @@ const Account = () => (
           >
             <AccountProfile />
           </Grid>
+          */}
           <Grid
             item
-            lg={8}
-            md={6}
-            xs={12}
+            lg={12}
           >
             <AccountProfileDetails />
+
           </Grid>
         </Grid>
       </Container>

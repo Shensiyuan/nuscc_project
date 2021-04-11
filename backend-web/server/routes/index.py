@@ -45,6 +45,31 @@ def register():
         users.insert(user_info)
         return jsonify({"response": "Register Succeed"})
 
+@app.route('/api/update_info', methods=[GET_REQUEST, POST_REQUEST])
+def update_info():
+    users = client.nuscc.user
+    user_name = request.json.get("user_name")
+    user_email = request.json.get("email")
+    user_phone = request.json.get("phone")
+    user_city = request.json.get("city")
+    user_country = request.json.get("country")
+    user_password = request.json.get("password")
+
+    user_exist = users.count_documents({"email": user_email})
+    if user_exist:
+        query = {"email": user_email}
+        new_info = {"$set":{
+            "user_name": user_name,
+            "phone": user_phone,
+            "city": user_city,
+            "country": user_country,
+            "password": user_password
+            }}
+        users.update_one(query, new_info)
+        return jsonify({"response": "Update Succeed"})
+    else:
+        return jsonify({"response": "Email Not Exist"})
+
 @app.route('/api/search_rooms')
 def all_rooms():
     rooms = client.nuscc.rooms

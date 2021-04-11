@@ -16,6 +16,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
+import ROUTER from "src/router";
+
+let url_request = ROUTER.FLASK_ROUTE.concat("api/create_room");
 
 function FormDialog() {
   const [open, setOpen] = React.useState(false);
@@ -43,7 +46,7 @@ function FormDialog() {
     console.log(values.room_name)
     console.log(room_name)
     console.log(description)
-    axios.post("http://localhost:5001/api/create_room", {
+    axios.post(url_request, {
       "room_name": room_name,
       "description": description
     })
@@ -57,11 +60,11 @@ function FormDialog() {
         Create Room
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+        <DialogTitle id="form-dialog-title">New Room</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here. We will send updates
-            occasionally.
+            If you want to create a new room, please give an eye-catching name and write a detailed
+            introduction to attract the audience.
           </DialogContentText>
           <TextField
             autoFocus
@@ -87,7 +90,7 @@ function FormDialog() {
             Cancel
           </Button>
           <Button onClick={handleSubmit(values.room_name, values.description)} color="primary">
-            Subscribe
+            Create
           </Button>
         </DialogActions>
       </Dialog>
@@ -109,6 +112,7 @@ const ProductListToolbar = (props) => (
     </FormDialog>
 
     </Box>
+    {/*
     <Box sx={{ mt: 3 }}>
       <Card>
         <CardContent>
@@ -134,6 +138,7 @@ const ProductListToolbar = (props) => (
         </CardContent>
       </Card>
     </Box>
+      */}
   </Box>
 );
 

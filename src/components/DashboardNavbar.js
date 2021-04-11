@@ -6,6 +6,7 @@ import {
   Badge,
   Box,
   Hidden,
+  Link,
   IconButton,
   Toolbar
 } from '@material-ui/core';
@@ -27,7 +28,12 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
         <Box sx={{ flexGrow: 1 }} />
         <Hidden lgDown>
           <IconButton color="inherit">
-            <InputIcon />
+            <Link
+              component={RouterLink}
+              to="/login"
+            >
+              <InputIcon />
+            </Link>
           </IconButton>
         </Hidden>
         <Hidden lgUp>

@@ -18,9 +18,9 @@ const routes = [
     element: <DashboardLayout />,
     children: [
       { path: 'account', element: <Account /> },
-      { path: 'customers', element: <CustomerList /> },
+      { path: 'users', element: <CustomerList /> },
       { path: 'dashboard', element: <Dashboard /> },
-      { path: 'products', element: <ProductList /> },
+      { path: 'rooms', element: <ProductList /> },
       { path: 'settings', element: <Settings /> },
       { path: 'join', element: <Join /> },
       { path: 'chat', element: <Chat /> },
@@ -34,7 +34,7 @@ const routes = [
       { path: 'login', element: <Login /> },
       { path: 'register', element: <Register /> },
       { path: '404', element: <NotFound /> },
-      { path: '/', element: <Navigate to="/app/dashboard" /> },
+      { path: '/', element: <Navigate to="/login" /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }

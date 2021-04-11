@@ -12,6 +12,9 @@ import {
 } from '@material-ui/core';
 
 import axios from 'axios';
+import ROUTER from "src/router";
+
+let url_request = ROUTER.FLASK_ROUTE.concat("api/login");
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,7 +22,7 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title>Login | Material Kit</title>
+        <title>YANA - Voice Chat Rooms</title>
       </Helmet>
       <Box
         sx={{
@@ -42,7 +45,9 @@ const Login = () => {
             })}
             onSubmit={(values, errors) => {
               console.log(values)
-              axios.post("http://localhost:5001/api/login", {"email": values.email, "password": values.password})
+              // axios.post("http://localhost:5001/api/login", {"email": values.email, "password": values.password})
+
+              axios.post(url_request, {"email": values.email, "password": values.password})
                 .then((response) => {
                   if(response.data.response === "User Not Found"){
                     alert("User Not Found")
@@ -51,7 +56,7 @@ const Login = () => {
                     alert("Incorrect Password")
                   }
                   else if(response.data.response === "Login Succeed"){
-                    navigate('/app/dashboard', { replace: true });
+                    navigate('/app/users', { replace: true });
                   }
                 })
             }}

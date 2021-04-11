@@ -9,10 +9,13 @@ import ProductListToolbar from 'src/components/product/ProductListToolbar';
 import ProductCard from 'src/components/product/ProductCard';
 //import products from 'src/__mocks__/products';
 import axios from 'axios';
+import ROUTER from "src/router";
+
+let url_request = ROUTER.FLASK_ROUTE.concat("api/search_rooms");
 
 var rooms = [];
 
-axios.get("http://localhost:5001/api/search_rooms", {})
+axios.get(url_request, {})
   .then((response) => {
     rooms = response.data.rooms;
     console.log(rooms)
@@ -22,7 +25,7 @@ const ProductList = () => (
 
   <>
     <Helmet>
-      <title>Products | Material Kit</title>
+        <title>YANA - Voice Chat Rooms</title>
     </Helmet>
     <Box
       sx={{

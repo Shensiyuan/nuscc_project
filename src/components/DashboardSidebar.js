@@ -19,7 +19,9 @@ import {
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
   UserPlus as UserPlusIcon,
-  Users as UsersIcon
+  Users as UsersIcon,
+  Speaker as FiSpeaker,
+  Home as FiHome
 } from 'react-feather';
 import NavItem from './NavItem';
 
@@ -30,51 +32,51 @@ const user = {
 };
 
 const items = [
+  // {
+  //   href: '/app/dashboard',
+  //   icon: BarChartIcon,
+  //   title: 'Dashboard'
+  // },
   {
-    href: '/app/dashboard',
-    icon: BarChartIcon,
-    title: 'Dashboard'
-  },
-  {
-    href: '/app/customers',
+    href: '/app/users',
     icon: UsersIcon,
-    title: 'Customers'
+    title: 'Users'
   },
   {
-    href: '/app/products',
-    icon: ShoppingBagIcon,
-    title: 'Products'
+    href: '/app/rooms',
+    icon: FiHome,
+    title: 'Fancy Rooms'
   },
   {
     href: '/app/account',
     icon: UserIcon,
     title: 'Account'
   },
-  {
-    href: '/app/settings',
-    icon: SettingsIcon,
-    title: 'Settings'
-  },
+  // {
+  //   href: '/app/settings',
+  //   icon: SettingsIcon,
+  //   title: 'Settings'
+  // },
   {
     href: '/app/join',
-    icon: SettingsIcon,
+    icon: FiSpeaker,
     title: 'Join Room'
   },
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Login'
-  },
-  {
-    href: '/register',
-    icon: UserPlusIcon,
-    title: 'Register'
-  },
-  {
-    href: '/404',
-    icon: AlertCircleIcon,
-    title: 'Error'
-  }
+  // {
+  //   href: '/login',
+  //   icon: LockIcon,
+  //   title: 'Login'
+  // },
+  // {
+  //   href: '/register',
+  //   icon: UserPlusIcon,
+  //   title: 'Register'
+  // },
+  // {
+  //   href: '/404',
+  //   icon: AlertCircleIcon,
+  //   title: 'Error'
+  // }
 ];
 
 const DashboardSidebar = ({ onMobileClose, openMobile }) => {
@@ -102,16 +104,19 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
           p: 2
         }}
       >
-        <Avatar
-          // component={RouterLink}
-          src={user.avatar}
-          sx={{
-            cursor: 'pointer',
-            width: 64,
-            height: 64
-          }}
-          // to="/app/account"
-        />
+
+        <a href="/app/account">
+          <Avatar
+            // component={RouterLink}
+            src={user.avatar}
+            sx={{
+              cursor: 'pointer',
+              width: 64,
+              height: 64
+            }}
+            // to="/app/users"
+          />
+        </a>
         <Typography
           color="textPrimary"
           variant="h5"
