@@ -56,11 +56,13 @@ Besides gaining revenues from individual customers, we are also targeting at bus
 
 ![Architecture](https://user-images.githubusercontent.com/62169579/114296237-c693f500-9adc-11eb-97a1-0ad02640dfb6.jpg)
 
-React.js is used to develop the front-end web UI. AWS Amplify is used as Saas service assisting users to build mobile or web applications, it is used to deploy the front-end web UI. Amazon Route 53 which is a scalable and highly available Domain Name Service, we can create a domain for the AWS amplify webApp
+**React.js** is used to develop the front-end web UI. 
 
-Amazon EC2, EC2 Auto Scaling and Elastic Load Balancing are used to set-up our front-end server to host our web interface. Then we use our personal domain and set the DNS to be our front-end server IP address.
+**AWS Amplify** is used as Saas service assisting users to build mobile or web applications, it is used to deploy the front-end web UI. 
 
-React.js is used to develop the front-end web UI. AWS Amplify is used as Saas service assisting users to build mobile or web applications, it is used to deploy the front-end web UI. Amazon Route 53 which is a scalable and highly available Domain Name Service, we can create a domain for the AWS amplify webApp
+**Amazon Route 53** which is a scalable and highly available Domain Name Service, we can create a domain for the AWS amplify webApp
+
+**Amazon EC2**, **EC2 Auto Scaling** and **Elastic Load Balancing** are used to set-up our front-end server to host our web interface. Then we use our personal domain and set the DNS to be our front-end server IP address.
 
 ## Economic Factors
 
@@ -68,13 +70,13 @@ It’s very cost-saving to host YANA on the cloud especially for start-up compan
 
 While defining the pricing models for YANA, we used several models for different services offered in YANA. 
 
-- Tiered pricing model
+**- Tiered pricing model**
 
 Free Tier (free): Enjoy basic services in YANA
 VIP Tier ($5/ month): Enjoy exclusive logo, can host room with no time limit8
 Enterprise User ($10/ month): Can host room to do advertising
 
-- Usage based pricing model
+**- Usage based pricing model**
 
 Virtual Gift ($8 each): Everyone can purchase to tip the host
 Target advertising ($20 each): We will collaberate with ad firms to do target advertising
