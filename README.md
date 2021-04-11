@@ -73,10 +73,13 @@ While defining the pricing models for YANA, we used several models for different
 **- Tiered pricing model**
 
 Free Tier (free): Enjoy basic services in YANA
-VIP Tier ($5/ month): Enjoy exclusive logo, can host room with no time limit8
+
+VIP Tier ($5/ month): Enjoy exclusive logo, can host room with no time limit
+
 Enterprise User ($10/ month): Can host room to do advertising
 
 **- Usage based pricing model**
 
 Virtual Gift ($8 each): Everyone can purchase to tip the host
+
 Target advertising ($20 each): We will collaberate with ad firms to do target advertising
