@@ -56,6 +56,8 @@ Besides gaining revenues from individual customers, we are also targeting at bus
 
 ![Architecture](https://user-images.githubusercontent.com/62169579/114296237-c693f500-9adc-11eb-97a1-0ad02640dfb6.jpg)
 
+**YANA Front-End:**
+
 **React.js** is used to develop the front-end web UI. 
 
 **AWS Amplify** is used as Saas service assisting users to build mobile or web applications, it is used to deploy the front-end web UI. 
@@ -63,6 +65,18 @@ Besides gaining revenues from individual customers, we are also targeting at bus
 **Amazon Route 53** which is a scalable and highly available Domain Name Service, we can create a domain for the AWS amplify webApp
 
 **Amazon EC2**, **EC2 Auto Scaling** and **Elastic Load Balancing** are used to set-up our front-end server to host our web interface. Then we use our personal domain and set the DNS to be our front-end server IP address.
+
+**YANA Back-End:**
+
+**Flask** which is a micro web framework written in Python and it is used to develop the YANA web back-end service. 
+
+**Node.js** is used to develop the web back-end server. 
+
+**MongoDB** is a document-based database, data is stored in JSON and XML documents and it is used to store YANA website various data such as user accounts, profiles and chat rooms information. 
+
+**AWS S3 bucket** is also used to store user-upload resources, such as images for user profile etc. Given that free data transfer amount is limited per month, proper compression is necessary
+
+**Amazon EC2**, **EC2 Auto Scaling** and **Elastic Load Balancing** are also used to set-up and host our back-end web server and back-end voice server
 
 ## Economic Factors
 
