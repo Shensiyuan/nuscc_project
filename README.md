@@ -1,8 +1,8 @@
-## [CS5224 Group Project] 
+## CS5224 Group Project
 
 This repository provides codes for Group 24 Final Project.
 
-## [YANA - You Are Not Alone] (https://yana.sora.so/) 
+## [YANA - You Are Not Alone](https://yana.sora.so/) 
 
 You can proceed to the demo by clicking the link above.
 
