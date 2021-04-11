@@ -30,12 +30,20 @@ schedule.scheduleJob(rule,()=>{
     });
 })
 //========================================================================
+const fs = require('fs');
 
+const SSL_CONFIG = {
+  cert: fs.readFileSync('./cert.pem'),
+  key: fs.readFileSync('./key.pem'),
+};
+const https = require('https');
 
 const cors = require('cors');
 const app = express();
 
 const router = require("./controllers/chatController");
+//const server = https.createServer(SSL_CONFIG,app);
+
 const server = http.createServer(app);
 const io = socketio(server);
 
@@ -54,7 +62,6 @@ const {
 } = require("./controllers/userController");
 
 io.on('connection', socket => {
-        console.log("????");
 
     socket.on('join',({name,room},callBack)=>{
 
@@ -65,7 +72,6 @@ io.on('connection', socket => {
         socket.emit('usersinvoice-before-join',{users:getUsersInVoice(user.room)});
         socket.broadcast.to(user.room).emit('message',{user:'admin', text:`${user.name} has joined the room`}); //sends message to all users in room except this user
         io.to(user.room).emit('users-online', { room: user.room, users: getUsersInRoom(user.room) });
-        console.log("Emit Users Online!");
         //console.log(getUsersInRoom(user.room));
         callBack(twilioObj); // passing no errors to frontend for now
         //callBack();
@@ -100,7 +106,7 @@ io.on('connection', socket => {
             removeUserInVoice(user.id);
             socket.broadcast.to(user.room).emit('remove-from-voice',{id:socket.id,name:user.name});
         }
-        console.log("User left");
+        //console.log("User left");
     });
 
 
